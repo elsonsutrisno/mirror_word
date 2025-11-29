@@ -1,16 +1,21 @@
 # mirror word
-alphabet = list("abcdefghijklmnopqrstuvwxyz")
+def mirror(word):
+    alphabet = list("abcdefghijklmnopqrstuvwxyz")
 
-word = "elson"
+    # convert each character to its alphabet index
+    indexes = [alphabet.index(ch) for ch in word.lower()]
 
-# convert each character to its alphabet index
-indexes = [alphabet.index(ch) for ch in word]
+    # mirror the index
+    for i, idx in enumerate(indexes):
+        indexes[i] = len(alphabet) - (idx + 1)
 
-# mirror the index
-for i, idx in enumerate(indexes):
-    indexes[i] = len(alphabet) - (idx + 1)
+    # convert back to letters
+    mirrored = [alphabet[i] for i in indexes]
 
-# convert back to letters
-mirrored = [alphabet[i] for i in indexes]
+    result = "".join(mirrored)
+    return result
 
-print(mirrored)
+if __name__ == "__main__": 
+    word = input("Input Word: ")
+    mirrored_word = mirror(word)
+    print(mirrored_word)
