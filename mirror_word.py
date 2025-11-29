@@ -1,5 +1,8 @@
 # mirror word
 def mirror(word):
+    if not word.isalpha():
+        return "Invalid: only letters allowed"
+
     alphabet = list("abcdefghijklmnopqrstuvwxyz")
 
     # convert each character to its alphabet index
